@@ -2,6 +2,6 @@
 <%= u.email %>
 <%= u.faculty %>
 <%= u.specialization %>
-<%= link_to u.id, users_path(u) %>
+<%= link_to u.id, user_show_path(id: u) %>
 <br>
 <% end %>
