@@ -8,7 +8,6 @@
       <th>User Email</th>
       <th>User Faculty</th>
       <th>User Specialization</th>
-
     </tr>
   </thead>
   <tbody>
@@ -21,6 +20,8 @@
       <td><%= u.email %></td>
       <td><%= u.faculty %></td>
       <td><%= u.specialization %></td>
+      <td><%= link_to "Edit", user_edit_path(id: u.id) %></td>
+      <td><%= link_to "Delete", user_remove_path(id: u.id), method: :delete %></td>
     </tr>
     <% end %>
   </tbody>

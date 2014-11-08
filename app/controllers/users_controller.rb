@@ -10,13 +10,15 @@ class UsersController < ApplicationController
 	end
 	
 	def remove
-	
+		@user = User.find(params[:id])
+		@user.destroy
+		redirect_to :back, notice: "ok"
 	end
 	
 	def update
 		@user = User.find(params[:id])
 		@user.update_attributes(update_params)
-
+		
 		if @user.save!
 			redirect_to :back, notice: "Alll good"
 		else
