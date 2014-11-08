@@ -33,4 +33,15 @@ class User
   # field :failed_attempts, type: Integer, default: 0 # Only if lock strategy is :failed_attempts
   # field :unlock_token,    type: String # Only if unlock strategy is :email or :both
   # field :locked_at,       type: Time
+
+  field :name, type: String, default: ""
+  field :surname, type: String, default: ""
+  field :lastname, type: String, default: ""
+  field :age, type: Integer, default: 0
+  field :studentid, type: String, default: ""
+  field :gpa, type: Float, default: 0.0
+  field :yearofstudy, type: Integer, default: 1
+  field :faculty, type: String, default: "FIT"
+  field :specialization, type: String, default: "IS"
+
 end

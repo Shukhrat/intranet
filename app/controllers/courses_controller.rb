@@ -24,7 +24,7 @@ class CoursesController < ApplicationController
 
     redirect_to :courses
   end
-
+0  
   def update
       @course = Course.find(params[:id])
       @course.update(course_params)
