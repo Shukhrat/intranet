@@ -11,8 +11,16 @@ class UsersController < ApplicationController
 	
 	def remove
 		@user = User.find(params[:id])
-		@user.destroy
-		redirect_to :back, notice: "ok"
+		
+		if @user.id != current_user.id
+			@user.destroy
+			redirect_to :back, notice: "ok"
+
+		else
+			redirect_to :back, notice: "you can NOT delete yourself"
+			
+		end
+
 	end
 	
 	def update

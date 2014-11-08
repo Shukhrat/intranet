@@ -20,8 +20,10 @@
       <td><%= u.email %></td>
       <td><%= u.faculty %></td>
       <td><%= u.specialization %></td>
-      <td><%= link_to "Edit", user_edit_path(id: u.id) %></td>
-      <td><%= link_to "Delete", user_remove_path(id: u.id), method: :delete %></td>
+        <% if user_signed_in?%>
+          <td><%= link_to "Edit", user_edit_path(id: u.id) %></td>
+          <td><%= link_to "Delete", user_remove_path(id: u.id), method: :delete %></td>
+        <% end %>
     </tr>
     <% end %>
   </tbody>
