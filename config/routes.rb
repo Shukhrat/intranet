@@ -9,6 +9,6 @@ Rails.application.routes.draw do
   get 'hello', to: 'welcome#hello'
   get 'studentlist', to: 'welcome#list'
   get 'users', to: 'users#index'
-  get 'users/:id/edit', to: 'users#edit'  
-
+  get 'users/:id/edit', to: 'users#edit'
+  get 'users/:id', to: 'users#show'
 end
