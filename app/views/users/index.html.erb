@@ -1,7 +1,23 @@
-<% @users.each do |u| %>
-<%= u.email %>
-<%= u.faculty %>
-<%= u.specialization %>
-<%= link_to u.id, users_path(u) %>
-<br>
-<% end %>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>User Email</th>
+      <th>User Faculty</th>
+      <th>User Specialization</th>
+
+    </tr>
+  </thead>
+  <tbody>
+		<% @users.each do |u| %>
+    <tr>
+    	<td><%= link_to u.id, users_path(u) %></td>
+      <td><%= u.email %></td>
+      <td><%= u.faculty %></td>
+      <td><%= u.specialization %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
