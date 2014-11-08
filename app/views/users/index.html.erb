@@ -2,6 +2,9 @@
   <thead>
     <tr>
       <th>#</th>
+      <th>User Name</th>
+      <th>User Surname</th>
+      <th>User Age</th>
       <th>User Email</th>
       <th>User Faculty</th>
       <th>User Specialization</th>
@@ -11,7 +14,10 @@
   <tbody>
 		<% @users.each do |u| %>
     <tr>
-    	<td><%= link_to u.id, user_show_path(id: u) %></td>
+    	<td><%= link_to u.id, user_show_path(id: u)%></td>
+      <td><%= u.name %></td>
+      <td><%= u.surname %></td>
+      <td><%= u.age %></td>
       <td><%= u.email %></td>
       <td><%= u.faculty %></td>
       <td><%= u.specialization %></td>

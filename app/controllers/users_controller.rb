@@ -30,7 +30,7 @@ class UsersController < ApplicationController
 
 	protected
 		def update_params
-			params.require(:user).permit(:name, :surname)
+			params.require(:user).permit(:name, :surname, :lastname, :age)
 		end
 
 

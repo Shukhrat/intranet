@@ -49,4 +49,8 @@ class User
   field :faculty, type: String, default: "FIT"
   field :specialization, type: String, default: "IS"
 
+  validates :name, :presence => true,
+            :length => { :minimum => 5 }
+  validates :surname, :presence => true,
+            :length => { :minimum => 5 }
 end
