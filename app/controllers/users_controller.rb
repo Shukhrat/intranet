@@ -53,7 +53,7 @@ class UsersController < ApplicationController
 		@user = User.find(params[:id])
 		@user.update_attributes(update_params)
 		if @user.save!
-			redirect_to :back, notice: "Alll good"
+			redirect_to :back, notice: "All good"
 		else
 			redirect_to :back, notice: "Something went wrong!"
 		end
