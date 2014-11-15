@@ -15,3 +15,36 @@
 //= require twitter/bootstrap
 //= require turbolinks
 //= require_tree .
+
+
+$(document).ready(function(){
+
+	var worker = $(".js-worker"),
+		update = $(".js-update");
+
+	update.on("change", function(){
+		initialize();
+	});
+
+	function initialize(){
+		var teachers = null,
+			self = $(this),
+			value = $(this).val();
+		try{
+			self.find("option").each(function(a){
+				if($(this).val() == value)
+					teachers = $(this).attr("data-values");
+			});
+			teachers = JSON.parse(teachers);
+		}
+		catch(e){}
+
+		if(teachers){
+			worker.html(teachers.map(function(a){
+				return "<option>"+a+"</option>"
+			}).join(""));
+		}
+	}
+	initialize.apply(update, []);
+
+});

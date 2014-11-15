@@ -21,6 +21,7 @@ class UsersController < ApplicationController
 	end
 
 	def coursereg
+
 		@group = Group.find(params[:id2])
 
 		if @group.users.size < @group.tscope
@@ -63,7 +64,7 @@ class UsersController < ApplicationController
 	end
 	protected
 		def update_params
-			params.require(:user).permit(:name, :surname, :lastname, :age)
+			params.require(:user).permit(:name, :surname, :lastname, :age, :role)
 		end
 
 

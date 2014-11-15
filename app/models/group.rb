@@ -8,6 +8,9 @@ class Group
 	field :cscope, type: Integer, default: 0
 	field :tscope, type: Integer, default: 20
 
+	# filed :teacher_id, type: String, default: ""
+
+
 	has_and_belongs_to_many :users
 
 end
