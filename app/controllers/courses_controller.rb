@@ -2,21 +2,59 @@ class CoursesController < ApplicationController
   
   def index
     @courses = Course.all
-    # respond_with(@courses)
   end
 
   def show
     @course = Course.find(params[:id])
-    # respond_with(@course)
+  end
+  
+  def listcourses
+    @courses = Course.all
   end
 
+  
   def new
     @course = Course.new
-    # respond_with(@course)
   end
 
   def edit
     @course = Course.find(params[:id])
+  end
+
+  def addgroup
+    @course = Course.find(params[:id]) 
+  end
+
+  def groupremove
+    @course = Course.find(params[:id1])
+    @group = @course.groups.find(params[:id2])
+    @group.destroy
+    redirect_to :back
+  end
+
+  def editgroup
+    @course = Course.find(params[:id1])
+    @group = @course.groups.find(params[:id2])
+
+  end
+  
+  def updategroup
+    @course = Course.find(params[:id1])
+    @group = @course.groups.find(params[:id2])
+    @group.update(group_params)
+    redirect_to :back   
+  end
+
+  def creategroup
+    @course = Course.find(params[:id])
+    @group = @course.groups.new(group_params)
+
+    if @group.save!
+      redirect_to :back, notice: "Alll good"
+    else
+      redirect_to :back, notice: "Something went wrong!"
+    end
+
   end
 
   def create
@@ -35,15 +73,14 @@ class CoursesController < ApplicationController
   def destroy
     @course = Course.find(params[:id])
     @course.destroy
-    # respond_with(@course)
     redirect_to :courses
   end
 
   private
-    def set_course
-      @course = Course.find(params[:id])
+    def group_params
+      params.require(:group).permit(:day,:name,:tscope)
+      
     end
-
     def course_params
       params.require(:course).permit(:title, :description)
     end

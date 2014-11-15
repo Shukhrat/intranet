@@ -1,0 +1,25 @@
+ <table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Day</th>
+      <th>Name</th>
+
+      <th>Course</th>
+
+    </tr>
+  </thead>
+  <tbody>
+	    <% @user.each do |u| %>
+			    <tr>
+			      <td><%= u.id%></td>
+			      <td><%= u.day %></td>
+            <td><%= u.name %></td>
+
+            <td><%= u.course.title%></td>
+			    </tr>
+      <% end %> 
+
+  </tbody>
+</table>
+<%= link_to "Back", :back , :class => 'btn btn-primary'%>

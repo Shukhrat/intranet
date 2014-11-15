@@ -5,9 +5,21 @@ class User
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  has_and_belongs_to_many :groups
+
   ## Database authenticatable
   field :email,              type: String, default: ""
   field :encrypted_password, type: String, default: ""
+
+  field :name,               type: String
+  field :surname,            type: String
+  field :lastname,           type: String, default: ""
+  field :age,                type: Integer,default: 0
+  field :studentid,          type: String, default: ""
+  field :gpa,                type: Float,  default: 0.0
+  field :yearofstudy,        type: Integer,default: 1
+  field :faculty,            type: String, default: "FIT"
+  field :specialization,     type: String, default: "IS"
 
   ## Recoverable
   field :reset_password_token,   type: String
@@ -22,6 +34,11 @@ class User
   field :last_sign_in_at,    type: Time
   field :current_sign_in_ip, type: String
   field :last_sign_in_ip,    type: String
+
+  validates :name, presence: true
+            # :length => { :minimum => 5 }
+  validates :surname, presence: true
+            # :length => { :minimum => 5 }
 
   def self.serialize_from_session(key, salt)
     record = to_adapter.get(key[0]["$oid"])
@@ -39,18 +56,4 @@ class User
   # field :unlock_token,    type: String # Only if unlock strategy is :email or :both
   # field :locked_at,       type: Time
 
-  field :name, type: String, default: ""
-  field :surname, type: String, default: ""
-  field :lastname, type: String, default: ""
-  field :age, type: Integer, default: 0
-  field :studentid, type: String, default: ""
-  field :gpa, type: Float, default: 0.0
-  field :yearofstudy, type: Integer, default: 1
-  field :faculty, type: String, default: "FIT"
-  field :specialization, type: String, default: "IS"
-
-  validates :name, :presence => true,
-            :length => { :minimum => 5 }
-  validates :surname, :presence => true,
-            :length => { :minimum => 5 }
 end
