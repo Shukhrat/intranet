@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   
   devise_for :users
   
-  get 'viewgroups/:id', to: 'users#viewgroups', as: "user_register"
 
   get 'users/:id2', to: 'users#coursereg', as: "user_reg"
   
@@ -15,6 +14,7 @@ Rails.application.routes.draw do
 
   root 'welcome#index'
 
+  get 'viewgroups/:id', to: 'users#viewgroups', as: "user_register"
   get 'hello', to: 'welcome#hello'
   get 'studentlist', to: 'welcome#list'
   get 'users/', to: 'users#index'
