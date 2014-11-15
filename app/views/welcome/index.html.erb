@@ -1,27 +1,9 @@
-<div class="sidebar-nav-fixed affix">
-    <div class="well">
-        <ul class="nav ">
-        		<% if user_signed_in? %>
-            <li class="active"><%= link_to "Show Courses", :courses %>
-            </li>
-            <li><%= link_to "Show Users", :users %>	
-            </li>
-            <li><%= link_to "Register to Course", list_courses_path %>
-            </li>
-            <li><%= link_to "Show Registered Courses", list_registered_courses_path %>	
-            </li>
-            <% else %>
-        </ul>
-    </div>
-    <!--/.well -->
-</div>
-
 <h1>users</h1>
 	<%= @users.each do |f|%>
 		<h4><%= f.email%></h4>
 		<h4><%= f.sign_in_count%></h4>
 	<% end %>	
-<% end %>
+
 <!-- # <% ('A'..'Z').each do |a| %> -->
 	<!-- # <%= a %>  -->
 <!-- # <% end %> -->

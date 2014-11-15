@@ -12,7 +12,6 @@
     </tr>
   </thead>
   <tbody>
-  <%= current_user.email%>
     <% @courses.each do |course| %>
       <tr>
         <td><%= link_to course.id, user_register_path(course.id) %></td>
