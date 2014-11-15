@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   
   get 'viewgroups/:id', to: 'users#viewgroups', as: "user_register"
 
-  get 'users/:id1/:id2', to: 'users#coursereg', as: "user_reg"
+  get 'users/:id2', to: 'users#coursereg', as: "user_reg"
   
   resources :courses
 
@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   get 'users/', to: 'users#index'
   get 'users/:id/edit', to: 'users#edit', as: "user_edit"
   
-  get 'users/:id', to: 'users#show', as: "user_show"
+  get 'user_show/:id', to: 'users#show', as: "user_show"
   
   
   put 'users/:id/update', to: 'users#update', as: "user_update"
