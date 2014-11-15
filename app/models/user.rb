@@ -1,9 +1,18 @@
 class User
   include Mongoid::Document
+  include Mongoid::Timestamps
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+
+  ROLES = {
+    0 => 'student',
+    1 => 'teacher',
+    2 => 'admin'
+  }       
 
   has_and_belongs_to_many :groups
 
@@ -55,5 +64,19 @@ class User
   # field :failed_attempts, type: Integer, default: 0 # Only if lock strategy is :failed_attempts
   # field :unlock_token,    type: String # Only if unlock strategy is :email or :both
   # field :locked_at,       type: Time
+
+  field :role, type: Integer, default: 0
+
+  def is_student?
+    role == 0
+  end
+
+  def is_admin?
+    role == 2
+  end
+
+  def is_teacher?
+    role == 1
+  end
 
 end

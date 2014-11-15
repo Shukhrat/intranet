@@ -6,6 +6,7 @@ gem 'devise'
 gem "therubyracer"
 gem "less-rails"
 gem "twitter-bootstrap-rails"
+gem 'better_errors'
 
 gem 'formtastic'
 gem 'formtastic-bootstrap', '~> 3.0.0'

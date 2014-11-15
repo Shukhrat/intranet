@@ -13,6 +13,7 @@ class UsersController < ApplicationController
 	def viewgroups
 		@course = Course.find(params[:id])
 	end
+	
 	def viewregisteredcourses
 		@user = User.find(current_user.id)
 		@user = @user.groups
