@@ -47,10 +47,10 @@
         </button>
         <a class="navbar-brand" href="/">Intranet</a>
         <div class="navbar-collapse collapse navbar-responsive-collapse">
-          <ul class="nav navbar-nav">
+          <ul class="nav navbar-nav col-lg-11">
                 <% if user_signed_in? %>
-                    <li>Welcome <%=  current_user.email %></li>
-                    <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
+                      <li class = "styledli rt">Welcome <%=  current_user.name %></li>
+                      <li class = "rt"><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
                 <% else %>
                     <li><%= link_to "Sign in", new_user_session_path%></li>
                     <li><%= link_to "Sign up", "/users/sign_up"  %></li>
@@ -62,8 +62,26 @@
     </div>
     <div class="container">
       <div class="row">
-        <div class="col-lg-10">
-          <%= bootstrap_flash %>
+        <div class="col-lg-3">
+          <div class="sidebar-nav-fixed affix">
+            <div class="well">
+                <ul class="nav ">
+                    <% if user_signed_in? %>
+                    <li class="active"><%= link_to "Show Courses", :courses %>
+                    </li>
+                    <li><%= link_to "Show Users", :users %> 
+                    </li>
+                    <li><%= link_to "Register to Course", list_courses_path %>
+                    </li>
+                    <li><%= link_to "Show Registered Courses", list_registered_courses_path %>  
+                    </li>
+                    <% end %>
+                </ul>
+            </div>
+            <!--/.well -->
+        </div>
+        </div>
+        <div class="col-lg-9">
           <%= yield %>
         </div>
         <!-- <div class="col-lg-3"> -->

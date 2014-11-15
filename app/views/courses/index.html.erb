@@ -13,7 +13,6 @@
     </tr>
   </thead>
   <tbody>
-  <%= current_user.id%>
     <% @courses.each do |course| %>
       <tr>
         <td><%= link_to course.id, course_path(course) %></td>
