@@ -8,4 +8,7 @@ class WelcomeController < ApplicationController
 	def list
 		@allstudents = User.all
 	end	
+
+	def guest
+	end
 end

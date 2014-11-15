@@ -1,5 +1,8 @@
-<h1>Registered users</h1>
-<table class="table table-bordered">
+<%- model_class = User -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
   <thead>
     <tr>
       <th>#</th>
@@ -9,6 +12,9 @@
       <th>User Email</th>
       <th>User Faculty</th>
       <th>User Specialization</th>
+      <th>User Role</th>
+      <th>Edit</th>
+      <th>Delete</th>
     </tr>
   </thead>
   <tbody>
@@ -21,6 +27,7 @@
       <td><%= u.email %></td>
       <td><%= u.faculty %></td>
       <td><%= u.specialization %></td>
+      <td><%= u.role %></td>
         <% if user_signed_in?%>
           <td><%= link_to "Edit", user_edit_path(id: u.id) %></td>
           <td><%= link_to "Delete", user_remove_path(id: u.id), method: :delete %></td>
@@ -29,3 +36,4 @@
     <% end %>
   </tbody>
 </table>
+<%= link_to "Back", :root , :class => 'btn btn-primary'%>
