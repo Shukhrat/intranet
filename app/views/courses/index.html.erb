@@ -9,7 +9,10 @@
       <th><%= model_class.human_attribute_name(:title) %></th>
       <th><%= model_class.human_attribute_name(:description) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
-      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+      <% if current_user.is_admin? %>
+        <th><%=t '.actions', :default => t("helpers.actions") %></th>
+      <% end %>
+
     </tr>
   </thead>
   <tbody>
@@ -21,7 +24,8 @@
         <td><%= course.created_at %></td>
         <td>
 
-          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+          <% if current_user.is_admin? %>
+            <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_course_path(course), :class => 'btn btn-default btn-xs' %>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
                       course_destroy_path(course.id),
@@ -30,6 +34,7 @@
                       :class => 'btn btn-xs btn-danger' %>
           <%= link_to t('.groups', :default => t("helpers.links.groups")),
                       add_group_path(course), :class => 'btn btn-default btn-xs' %>
+          <% end %>
 
         </td>
       </tr>

@@ -11,7 +11,8 @@ class User
   ROLES = {
     0 => 'student',
     1 => 'teacher',
-    2 => 'admin'
+    2 => 'admin',
+    99 => 'guest'
   }       
 
   has_and_belongs_to_many :groups
@@ -65,7 +66,7 @@ class User
   # field :unlock_token,    type: String # Only if unlock strategy is :email or :both
   # field :locked_at,       type: Time
 
-  field :role, type: Integer, default: 0
+  field :role, type: Integer, default: 2
 
   def is_student?
     role == 0
@@ -77,6 +78,10 @@ class User
 
   def is_teacher?
     role == 1
+  end
+
+  def is_guest?
+    role == 99
   end
 
 end

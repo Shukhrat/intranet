@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get 'users/:id2', to: 'users#coursereg', as: "user_reg"
   
   resources :courses
+  get 'guest', to: 'welcome#guest', as: "guest_wait"
 
   delete 'courses/:id', to: 'courses#destroy', as: "course_destroy"
 

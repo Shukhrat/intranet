@@ -4,7 +4,7 @@ class UsersController < ApplicationController
 	def index
 		@users = User.all
 	end
-	
+
 	def show
 		@users = User.find(params[:id])
 	end
@@ -54,14 +54,16 @@ class UsersController < ApplicationController
 		@user = User.find(params[:id])
 		@user.update_attributes(update_params)
 		if @user.save!
-			redirect_to :back, notice: "All good"
+			redirect_to users_path, notice: "All good"
 		else
 			redirect_to :back, notice: "Something went wrong!"
 		end
 	end
+
 	def edit
 		@user = User.find(params[:id])
 	end
+
 	protected
 		def update_params
 			params.require(:user).permit(:name, :surname, :lastname, :age, :role)
