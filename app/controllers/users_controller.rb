@@ -9,6 +9,9 @@ class UsersController < ApplicationController
 		@users = User.find(params[:id])
 	end
 
+	def newusers
+		@user = User.where(role: 99)
+	end
 
 	def viewgroups
 		@course = Course.find(params[:id])
@@ -18,6 +21,46 @@ class UsersController < ApplicationController
 		@user = User.find(current_user.id)
 		@user = @user.groups
 
+	end
+	def showdepartment
+		@department = Department.all
+	end
+	def newdepartment
+		@department = Department.new
+		
+	end
+	def createdepartment
+		@department = Department.new(department_params)
+		@department.save
+		redirect_to :showdepartment
+	end
+	def editdepartment
+		@department = Department.find(params[:id])
+		
+	end
+	def destroydepartment
+		@department = Department.find(params[:id])
+		@department.destroy
+		redirect_to :showdepartment
+		
+	end
+	def updatedepartment
+		@department = Department.find(params[:id])
+		@department.update(department_params)
+		redirect_to :showdepartment
+
+	end
+	def shownews
+		@news = Post.all
+	end
+	def addnews
+		@news = Post.new
+		
+	end
+	def createnews
+		@news = Post.new(news_params)
+		@news.save
+		redirect_to :show_news
 	end
 
 	def coursereg
@@ -35,6 +78,20 @@ class UsersController < ApplicationController
 			redirect_to :back, notice: "Not Registered"
 
 		end
+
+	end
+	def editnews
+		@news = Post.find(params[:id])
+	end
+	def delnews
+		@news = Post.find(params[:id])
+		@news.destroy
+		redirect_to :show_news
+	end
+	def updatenews
+		@news = Post.find(params[:id])
+		@news.update(news_params)
+		redirect_to :show_news
 
 	end
 
@@ -67,6 +124,13 @@ class UsersController < ApplicationController
 	protected
 		def update_params
 			params.require(:user).permit(:name, :surname, :lastname, :age, :role)
+		end
+		def news_params
+			params.require(:post).permit(:title, :text)
+			
+		end
+		def department_params
+			params.require(:department).permit(:name)
 		end
 
 

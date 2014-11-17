@@ -16,6 +16,8 @@ class User
   }       
 
   has_and_belongs_to_many :groups
+  has_many :post 
+  has_and_belongs_to_many :departments
 
   ## Database authenticatable
   field :email,              type: String, default: ""
@@ -66,7 +68,7 @@ class User
   # field :unlock_token,    type: String # Only if unlock strategy is :email or :both
   # field :locked_at,       type: Time
 
-  field :role, type: Integer, default: 2
+  field :role, type: Integer, default: 99
 
   def is_student?
     role == 0

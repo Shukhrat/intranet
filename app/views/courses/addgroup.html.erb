@@ -1,3 +1,4 @@
+<h1>Groups</h1>
 <table class="table table-bordered">
   <thead>
     <tr>
@@ -12,7 +13,7 @@
   <tbody>
     <% @course.groups.each do |u| %>
     <tr>
-      <td><%= link_to u.id, user_show_path(id: u)%></td>
+      <td><%= link_to u.id, show_course_users_path(id: u.id)%></td>
       <td><%= u.day %></td>
       <td><%= u.name %></td>
       <td><%= u.tscope %></td>
@@ -25,6 +26,7 @@
     <% end %>
   </tbody>
 </table>
+<h1> New group</h1>
 
 <%= form_for @course.groups.new, url: create_group_path(@course.id), :html => { :class => "form-horizontal course" } do |f| %>
 

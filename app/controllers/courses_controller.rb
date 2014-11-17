@@ -2,6 +2,7 @@ class CoursesController < ApplicationController
   
   def index
     @courses = Course.all
+    
   end
 
   def show
@@ -12,6 +13,10 @@ class CoursesController < ApplicationController
     @courses = Course.all
   end
 
+  def showusers
+    @group = Group.find(params[:id])
+    @group = @group.users
+  end
   
   def new
     @course = Course.new
@@ -35,6 +40,7 @@ class CoursesController < ApplicationController
   def editgroup
     @course = Course.find(params[:id1])
     @group = @course.groups.find(params[:id2])
+    @teacher = User.where(role: 1)
 
   end
   

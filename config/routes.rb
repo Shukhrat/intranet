@@ -23,17 +23,35 @@ Rails.application.routes.draw do
   
   get 'user_show/:id', to: 'users#show', as: "user_show"
   
-  
   put 'users/:id/update', to: 'users#update', as: "user_update"
+  
   delete 'users/:id', to: 'users#remove', as: "user_remove"
 
   get 'courses/:id/addgroup', to: 'courses#addgroup', as: "add_group"
   post 'courses/creategroup/:id', to: 'courses#creategroup', as: "create_group"
   get 'courses/:id1/:id2/editgroup', to: 'courses#editgroup', as: "group_edit"  
   put 'courses/:id1/:id2/updategroup', to: 'courses#updategroup', as: "group_update"
+
   delete 'courses/:id1/:id2', to: 'courses#groupremove', as: "group_remove"
+  delete 'delnews/:id', to: 'users#delnews', as: "delnews"
 
+  get 'show_course_users/:id', to: 'courses#showusers', as: "show_course_users"
+  get 'addnews', to: 'users#addnews', as: "addnews"
+  put 'createnews', to: 'users#createnews', as: "createnews"
+  put 'updatenews/:id', to: 'users#updatenews', as: "updatenews"
+  get 'shownews', to: 'users#shownews', as: "show_news"
+  get 'editnews/:id', to: 'users#editnews', as: "editnews"
 
+  get 'new_users', to: 'users#newusers', as: "new_users"
+  get 'departments', to: 'users#showdepartment', as: "showdepartment"
+  get 'newdepartment', to: 'users#newdepartment', as: "new_department"
+  put 'createdepartment', to: 'users#createdepartment', as: "create_department"
+
+  get 'departmentedit/:id', to: 'users#editdepartment', as: "department_edit"
+  delete 'destroydepartment/:id', to: 'users#destroydepartment', as: "department_destroy"
+  put 'updatedepartment/:id', to: 'users#updatedepartment', as: "update_department"
+  
+  
 
   # get 'courses/:id', to: 'courses#creategroup', as: 'create_group'
   # put 'courses/:id/newgroup', to:'coureses#newgroup', as: 'new_group'

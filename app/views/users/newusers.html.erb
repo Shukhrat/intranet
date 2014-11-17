@@ -1,7 +1,4 @@
-<%- model_class = User -%>
-<div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
-</div>
+<h1>New Users</h1>
 <table class="table table-striped">
   <thead>
     <tr>
@@ -13,14 +10,14 @@
       <th>User Faculty</th>
       <th>User Specialization</th>
       <th>User Role</th>
-      <th>Edit</th>
-      <th>Delete</th>
+      <th></th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
-		<% @users.each do |u| %>
+		<% @user.each do |u| %>
     <tr>
-    	<td><%= link_to u.id, user_show_path(id: u)%></td>
+    	<td><%= u.id %></td>
       <td><%= u.name %></td>
       <td><%= u.surname %></td>
       <td><%= u.age %></td>
@@ -30,16 +27,8 @@
       
       <% if u.role == 99 %> 
         <td>Guest</td>
-        <% elsif u.role == 2%>
-        <td>Admin</td>
-        <% elsif u.role == 0%>
-        <td>Student</td>
-        <% elsif u.role == 1%>
-        <td>Teacher</td>
-
       <%end%>
 
-      <!-- <td><%= u.role %></td> -->
         <% if user_signed_in?%>
           <td><%= link_to "Edit", user_edit_path(id: u.id) %></td>
           <td><%= link_to "Delete", user_remove_path(id: u.id), method: :delete %></td>

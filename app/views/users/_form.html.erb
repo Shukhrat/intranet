@@ -45,8 +45,16 @@
   </div>
    <div class="control-group">
     <%= f.label :role, :class => 'control-label' %>
+    
+
+
     <div class="controls">
-      <%= f.text_field :role, :class => 'form-control' %>
+      <select name = "user[role]" id="user_role" class="form-control">
+        <option value="99">Guest</option>    
+        <option value="0">Student</option>    
+        <option value="1">Teacher</option>    
+        <option value="2">Admin</option>    
+      </select>
     </div>
     <%= error_span(@user[:age]) %>
   </div>
