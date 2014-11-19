@@ -8,6 +8,9 @@ gem "less-rails"
 gem "twitter-bootstrap-rails"
 gem 'better_errors'
 
+gem 'nokogiri'
+gem 'binding_of_caller'
+
 gem 'formtastic'
 gem 'formtastic-bootstrap', '~> 3.0.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

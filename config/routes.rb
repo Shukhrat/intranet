@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  get 'parser/kolesa'
+
   get 'courses/listcourses', to: 'courses#listcourses', as: "list_courses"
   get 'users/viewregisteredcourses', to: 'users#viewregisteredcourses', as: "list_registered_courses"
   
