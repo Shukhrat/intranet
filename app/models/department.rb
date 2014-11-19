@@ -10,4 +10,8 @@ class Department
 
   has_and_belongs_to_many :users
 
+  def teachers
+  	teacher.map{ |i| User.find(i) }
+  end
+
 end

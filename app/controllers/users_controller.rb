@@ -25,6 +25,10 @@ class UsersController < ApplicationController
 	def showdepartment
 		@department = Department.all
 	end
+	def showdep
+		@department = Department.find(params[:id])
+		@teacherlist = @department.teachers
+	end
 	def newdepartment
 		@department = Department.new
 		
@@ -36,16 +40,15 @@ class UsersController < ApplicationController
 	end
 	def editdepartment
 		@department = Department.find(params[:id])
-		
 	end
 	def destroydepartment
 		@department = Department.find(params[:id])
 		@department.destroy
-		redirect_to :showdepartment
-		
+		redirect_to :showdepartment	
 	end
 	def updatedepartment
 		@department = Department.find(params[:id])
+
 		@department.update(department_params)
 		redirect_to :showdepartment
 

@@ -47,6 +47,7 @@ Rails.application.routes.draw do
   get 'newdepartment', to: 'users#newdepartment', as: "new_department"
   put 'createdepartment', to: 'users#createdepartment', as: "create_department"
 
+  get 'departments/:id', to: 'users#showdep', as: "department_show"
   get 'departmentedit/:id', to: 'users#editdepartment', as: "department_edit"
   delete 'destroydepartment/:id', to: 'users#destroydepartment', as: "department_destroy"
   put 'updatedepartment/:id', to: 'users#updatedepartment', as: "update_department"

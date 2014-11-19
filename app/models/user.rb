@@ -17,7 +17,8 @@ class User
 
   has_and_belongs_to_many :groups
   has_many :post 
-  has_and_belongs_to_many :departments
+  has_one :departments
+  belongs_to :departments
 
   ## Database authenticatable
   field :email,              type: String, default: ""

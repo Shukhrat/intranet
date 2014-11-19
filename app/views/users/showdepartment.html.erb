@@ -4,34 +4,29 @@
     <tr>
       <th>Id</th>
       <th>Name</th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th>Edit</th>
+      <th>Delete</th>
     </tr>
   </thead>
   <tbody>
     <% @department.each do |d| %>
       <tr>
-        <td><%= link_to d.id, course_path(d) %></td>
+        <td><%= link_to d.id, department_show_path(d) %></td>
         <td><%= d.name %></td>
-        <td>
-
           <% if current_user.is_admin? %>
-            <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      department_edit_path(d.id), :class => 'btn btn-default btn-xs' %>
-          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+           <td> <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      department_edit_path(d.id), :class => 'btn btn-default btn-xs' %></td>
+          <td><%= link_to t('.destroy', :default => t("helpers.links.destroy")),
                       department_destroy_path(d.id),
                       :method => :delete,
                       :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                      :class => 'btn btn-xs btn-danger' %>
+                      :class => 'btn btn-xs btn-danger' %></td>
           <% end %>
-
-        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
-<%= link_to "Back", :root , :class => 'btn btn-primary'%>
+<%= link_to "Back", :root, :class => 'btn btn-primary'%>
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_department_path,
             :class => 'btn btn-primary' %>
