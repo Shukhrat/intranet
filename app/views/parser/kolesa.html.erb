@@ -1,6 +1,46 @@
 <h1>Parser#kolesa</h1>
-<p>Find me in app/views/parser/kolesa.html.erb</p>
-<% @lol.each do |e| %>
-<br>
-<%= e.text %>
+
+<img src="<%= @vision['image'] %>" class = "carimage">
+
+<% @vision['allcards'].each do |i| %>
+	<div>
+	<span>
+		<img src="<%= i %>" class = "minified">
+	</span>
+	</div>
 <% end %>
+
+<table class="table table-bordered ">
+  <thead>
+    <tr>
+      <th>Регион</th>
+      <th>Кузов</th>
+      <th>Двигатель</th>
+      <th>КПП</th>
+      <th>Пробег</th>
+      <th>Состояние</th>
+      <th>Руль</th>
+      <th>Привод</th>
+      <th>Цвет</th>
+      <th>Растоможен</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= @vision["region"] %></td>
+      <td><%= @vision["kuzov"] %></td>
+      <td><%= @vision["engine"] %></td>
+      <td><%= @vision["kpp"] %></td>
+      <td><%= @vision["probeg"] %></td>
+      <td><%= @vision["state"] %></td>
+      <td><%= @vision["rule"] %></td>
+      <td><%= @vision["privod"] %></td>
+      <td><%= @vision["color"] %></td>
+      <td><%= @vision["rastamozhen"] %></td>
+    </tr>
+  </tbody>
+</table>
+
+<p class = "descriptiontext"><%= @vision['description'] %></p>
+
+

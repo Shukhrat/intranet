@@ -1,0 +1,34 @@
+
+    pair.each do |i|
+      title = i.first
+      value = i.last
+
+      if title.include?("Регион")
+        attr_name = :region
+      end
+      if title.include?("Кузов")
+        attr_name = :kuzov
+      end
+      if title.include?("Двигатель")
+        attr_name = :engine
+      end
+      if title.include?("КПП")
+        attr_name = :kpp
+      end
+      if title.include?("Пробег")
+        attr_name = :probeg
+      end
+      if title.include?("Состояние")
+        attr_name = :state
+      end
+      attr_val = value
+      
+      self[attr_name] = attr_val
+
+      self.save!
+    end
+
+<%= @vision.fields.keys.each do |i| %>
+  <%= @vision[i] %>
+<% end %>
+
